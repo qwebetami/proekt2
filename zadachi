@@ -1,0 +1,26 @@
+import time as t
+while True:
+  choose = input('enter the number corresponding to one of the tasks: \n 1- Paskal's trinagle \n 2- \n 3- product of matrices \n)
+  if choose = '1':
+    while True:
+    n1 = input('please enter natural number or type "stop" to stop entering \n')  # enter 
+    if n1 == 'stop':  # making exit from endless cycle
+        break # leave from here
+    else:  # user enter number
+        n = int(n1)  # making number from str
+        while True:
+            if n < 0:  # give 
+                print('Error: number must be non-negative! enter again')
+                t.sleep(5)
+            else:
+                triangle = []
+                for i in range(n+1):
+                    row = [1] * (i+1)
+                    for j in range(1, i):
+                        row[j] = triangle[i-1][j-1] + triangle[i-1][j]
+                    triangle.append(row)
+
+                for row in triangle:
+                    print(' '.join(map(str, row)))
+                t.sleep(5)
+                break
