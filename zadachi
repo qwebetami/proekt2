@@ -1,35 +1,51 @@
 import time as t
 while True:
-  choose = input('enter the number corresponding to one of the tasks: \n 1- Paskals trinagle \n 2- \n 3- product of matrices \n')
-  if choose == '1':
-    while True:
-      n1 = input('please enter natural number or type "stop" to stop entering \n')  # enter 
-      if n1 == 'stop':  # making exit from endless cycle
-        break # leave from here
-      else:  # user enter number
-        try:
-            int(n1)
-            
-        except ValueError:
-            print('error, not number or stop')
-            t.sleep(2)
-            break
-
-        n = int(n1)  # making number from str
+    choose = input('enter the number corresponding to one of the tasks: \n 1- Paskals trinagle \n 2- \n 3- product of matrices \n')
+    if choose == '1':
         while True:
-            if n < 0:  # give to user second life
-                print('Error: number must be non-negative! enter again')  
-                t.sleep(5)  # why it sleep, but i'm no
-            else:  
-                triangle = []  # empty list
-                for i in range(n+1):  # We go through each row of the triangle from 0 to n
-                    row = [1] * (i+1)  # making list from only 1
-                    for j in range(1, i):  # new cycle
-                        row[j] = triangle[i-1][j-1] + triangle[i-1][j]  # change every number to sum of twos 
-                    triangle.append(row)  # add to list line
-
-                for row in triangle:  # went by every number in list
-                    print(' '.join(map(str, row)))  # use map to print all in the line
-                t.sleep(5)  # spokoinoi nochi
+            n1 = input('please enter natural number or type "stop" to stop entering \n')  # enter 
+            if n1 == 'stop':  # making exit from endless cycle
+                break # leave from here
+            else:  # user enter number
+            try:
+                int(n1)
+            
+            except ValueError:
+                print('error, not number or stop')
+                t.sleep(2)
                 break
-    if choose == '3':
+
+            n = int(n1)  # making number from str
+            while True:
+                if n < 0:  # give to user second life
+                    print('Error: number must be non-negative! enter again')  
+                    t.sleep(5)  # why it sleep, but i'm no
+                else:  
+                    triangle = []  # empty list
+                    for i in range(n+1):  # We go through each row of the triangle from 0 to n
+                        row = [1] * (i+1)  # making list from only 1
+                        for j in range(1, i):  # new cycle
+                            row[j] = triangle[i-1][j-1] + triangle[i-1][j]  # change every number to sum of twos 
+                        triangle.append(row)  # add to list line
+
+                    for row in triangle:  # went by every number in list
+                        print(' '.join(map(str, row)))  # use map to print all in the line
+                    t.sleep(5)  # spokoinoi nochi
+                    break    
+    elif choose == '3':
+        while True:
+            rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively').split())
+            if column1 != rows2:
+               print('error can not be peremnozheno')
+            matrix1 = []
+            for _ in range(rows1):
+                matrix1.append(list(map(int, input().strip().split())))
+            matrix2 = []
+            for _ in range(rows2):
+                matrix2.append(list(map(int, input().strip().split())))
+            matrixultra = [[0 for _ in range(column2)] for _ in range(rows1)]
+            for i in range(rows1):
+                for j in range(column2):
+                    for f in range(rows2):  # или m or k, они равны
+                        matrixultra[i][j] += matrix1[i][f] * matrix2[f][j]
+            print(matrixultra)
