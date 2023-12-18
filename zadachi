@@ -46,6 +46,6 @@ while True:
             matrixultra = [[0 for _ in range(column2)] for _ in range(rows1)]
             for i in range(rows1):
                 for j in range(column2):
-                    for f in range(rows2):  # или m or k, они равны
+                    for f in range(rows2):
                         matrixultra[i][j] += matrix1[i][f] * matrix2[f][j]
             print(matrixultra)
