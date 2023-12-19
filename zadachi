@@ -31,23 +31,22 @@ while True:
                         t.sleep(5)  # spokoinoi nochi
                         break    
     elif choose == 3:
-        while True:
-            try:
-                rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively').split())
-            except ValueError:
-                break
-            if column1 != rows2:
-               print('error can not be peremnozheno')
-            matrix1 = []
+        while True: 
+            rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively /n').split()) # inputing razmery
+            if column1 != rows2:  # can't find product
+               print('error, can not be peremnozheno')  
+               break
+            matrix1 = []  
             for _ in range(rows1):
-                matrix1.append(list(map(int, input().strip().split())))
+                matrix1.append(list(map(int, input('input 1st matrix').strip().split())))
             matrix2 = []
             for _ in range(rows2):
-                matrix2.append(list(map(int, input().strip().split())))
+                matrix2.append(list(map(int, input('input 2nd matrix').strip().split())))
             matrixultra = [[0 for _ in range(column2)] for _ in range(rows1)]
-            for i in range(rows1):
-                for j in range(column2):
+            for k in range(rows1):
+                for g in range(column2):
                     for f in range(rows2):
-                        matrixultra[i][j] += matrix1[i][f] * matrix2[f][j]
-            print(matrixultra)
+                        matrixultra[k][g] += matrix1[k][f] * matrix2[f][g]
+            for row in matrixultra:
+                print(' '.join(map(str, row)))
             t.sleep(3)
