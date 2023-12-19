@@ -7,31 +7,29 @@ while True:
             if n1 == 'stop':  # making exit from endless cycle
                 break # leave from here
             else:  # user enter number
-            try:
-                int(n1)            
-            except ValueError:
-                print('error, not number or stop')
-                t.sleep(2)
-                break
-            finally:
-                t.sleep(0.2)
-            n = int(n1)  # making number from str
-            while True:
-                if n < 0:  # give to user second life
-                    print('Error: number must be non-negative! enter again')  
-                    t.sleep(5)  # why it sleep, but i'm no
-                else:  
-                    triangle = []  # empty list
-                    for i in range(n+1):  # We go through each row of the triangle from 0 to n
-                        row = [1] * (i+1)  # making list from only 1
-                        for j in range(1, i):  # new cycle
-                            row[j] = triangle[i-1][j-1] + triangle[i-1][j]  # change every number to sum of twos 
-                        triangle.append(row)  # add to list line
+                try:
+                    int(n1)            
+                except ValueError:
+                    print('error, not number or stop')
+                    t.sleep(2)
+                    break
+                n = int(n1)  # making number from str
+                while True:
+                    if n < 0:  # give to user second life
+                        print('Error: number must be non-negative! enter again')  
+                        t.sleep(5)  # why it sleep, but i'm no
+                    else:  
+                        triangle = []  # empty list
+                        for i in range(n+1):  # We go through each row of the triangle from 0 to n
+                            row = [1] * (i+1)  # making list from only 1
+                            for j in range(1, i):  # new cycle
+                                row[j] = triangle[i-1][j-1] + triangle[i-1][j]  # change every number to sum of twos 
+                            triangle.append(row)  # add to list line
 
-                    for row in triangle:  # went by every number in list
-                        print(' '.join(map(str, row)))  # use map to print all in the line
-                    t.sleep(5)  # spokoinoi nochi
-                    break    
+                        for row in triangle:  # went by every number in list
+                            print(' '.join(map(str, row)))  # use map to print all in the line
+                        t.sleep(5)  # spokoinoi nochi
+                        break    
     elif choose == 3:
         while True:
             try:
