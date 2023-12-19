@@ -32,11 +32,15 @@ while True:
                         break    
     elif choose == 3:
         while True: 
-            rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively \n or type s t o p (throw space) to leave \n').split()) # inputing razmery
+            rows1, rows2, column1, column2 = map(str, input('enter throw space number of rows and columns of two matrices respectively \n or type s t o p (throw space) to leave \n').split()) # inputing razmery
             try:
                 int(rows1)
             except ValueError:
                 break  # if user want to leave
+            rows1 = int(rows1)
+            rows2 = int(rows2)
+            column1 = int(column1)
+            column2 = int(column2)
             if column1 != rows2:  # can't find product
                print('error, can not be peremnozheno')  
                break
@@ -53,6 +57,7 @@ while True:
                 for g in range(column2):
                     for f in range(rows2):
                         matrixultra[k][g] += matrix1[k][f] * matrix2[f][g]  # making product of two matrix
+            print('product of matrix:')
             for row in matrixultra:  # output new matrix
                 print(' '.join(map(str, row)))
             t.sleep(3)
