@@ -32,16 +32,18 @@ while True:
                         break    
     elif choose == 3:
         while True: 
-            rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively /n').split()) # inputing razmery
+            rows1, rows2, column1, column2 = map(int, input('enter throw space number of rows and columns of two matrices respectively \n').split()) # inputing razmery
             if column1 != rows2:  # can't find product
                print('error, can not be peremnozheno')  
                break
-            matrix1 = []  
+            matrix1 = [] 
+            print('input 1st matrix(dif columns throw space and rows throw enter') 
             for _ in range(rows1):
-                matrix1.append(list(map(int, input('input 1st matrix').strip().split())))
+                matrix1.append(list(map(int, input().strip().split())))
             matrix2 = []
+            print('input 2nd matrix')
             for _ in range(rows2):
-                matrix2.append(list(map(int, input('input 2nd matrix').strip().split())))
+                matrix2.append(list(map(int, input().strip().split())))
             matrixultra = [[0 for _ in range(column2)] for _ in range(rows1)]
             for k in range(rows1):
                 for g in range(column2):
